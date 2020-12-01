@@ -32,3 +32,5 @@ class Ball(pygame.sprite.Sprite):
             self.rect.top = 0
             self.speedy = random.choice(allowed_speed)
 
+
+
