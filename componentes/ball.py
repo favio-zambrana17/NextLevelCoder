@@ -6,7 +6,7 @@ from utils.constants import (BLUE, SCREEN_HEIGHT, SCREEN_WIDTH)
 allowed_speed = list(range(3,7))
 
 class Ball(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, size):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((30,40))
         self.image.fill(BLUE)
@@ -15,6 +15,7 @@ class Ball(pygame.sprite.Sprite):
         self.rect.y = random.randrange(-100, -40)
         self.speedy = random.choice(allowed_speed)
         self.speedx = random.choice(allowed_speed)
+        self.size = size
 
     def update(self):
         self.rect.x = self.rect.x + self.speedx
