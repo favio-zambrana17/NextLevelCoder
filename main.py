@@ -1,6 +1,6 @@
 
 from componentes.game import Game
-import  pygame
+import pygame
 
 if __name__ == "__main__":
     game = Game()
@@ -8,4 +8,5 @@ if __name__ == "__main__":
         if not game.playing:
             game.show_start_screen()
             game.run()
+
     pygame.quit()

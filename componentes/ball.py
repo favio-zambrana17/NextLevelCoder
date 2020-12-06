@@ -2,15 +2,16 @@ import pygame
 import random
 
 from os import path
-from utils.constants import (BLACK, SCREEN_HEIGHT, SCREEN_WIDTH, IMG_DIR)
 
-allowed_speed = list(range(3,7))
+from utils.constants import (BLACK, SCREEN_HEIGHT, SCREEN_WIDTH, IMG_DIR)
+allowed_speed = list(range(1, 3))
+
 
 class Ball(pygame.sprite.Sprite):
     def __init__(self, size):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(path.join(IMG_DIR, "blue.png")).convert()
-        self.image = pygame.transform.scale(self.image, (100//size, 100//size))
+        self.image = pygame.transform.scale(self.image, (100 // size, 100 // size))
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.rect.x = random.randrange(SCREEN_WIDTH - self.rect.width)
@@ -34,6 +35,3 @@ class Ball(pygame.sprite.Sprite):
         if self.rect.top < 0:
             self.rect.top = 0
             self.speedy = random.choice(allowed_speed)
-
-
-
